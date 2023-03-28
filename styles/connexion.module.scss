@@ -1,0 +1,43 @@
+.connexion {
+    min-width: 243px;
+    position: absolute;
+    transform: translate(260px, 71px);
+    background-color: #FFF;
+    border-radius: 1rem;
+    box-shadow: 0 0 5px hsl(0 0% 78%);
+    z-index: 2;
+
+    /* For the Component will be responsive */
+    @media (min-width: 650px) {
+        transform: translate(410px, 71px);
+      }
+
+      @media (min-width: 1000px) {
+        transform: translate(760px, 71px);
+      }
+
+    > div {
+        min-height: 42px;
+        display: flex;
+        align-items: center;
+
+        > a {
+            font-size: 1em;
+            font-weight: normal;
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            width: 80px;
+            margin: 0 auto;
+
+            &:hover {
+                font-weight: bold;
+            }
+        }
+        &:hover {
+            background: hsl(0 0% 95%);
+            border-radius: 1rem;
+
+        }
+    }
+}

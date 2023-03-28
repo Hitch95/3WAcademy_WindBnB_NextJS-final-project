@@ -1,0 +1,220 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Roboto', Helvetica, sans-serif;
+    position: relative;
+    z-index: 1;
+
+    @media (min-width: 650px) {
+        width: 650px;
+    }
+
+    @media (min-width: 1000px) {
+        width: 1000px;
+    }
+
+    @media (min-width: 1400px) {
+        max-width: 1400px;
+    }
+
+    >div {
+        &:nth-of-type(1) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            min-height: 50px;
+            margin-bottom: 0.25rem;
+
+            >a {
+                max-width: 42px;
+                min-height: 42px;
+
+                img {
+                    max-width: 42px;
+                    min-height: 42px;
+                }
+            }
+
+            .sign_log_container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #fff;
+                box-shadow: 0 0 5px hsl(0 0% 78%);
+                border-radius: 100vw;
+                min-height: 42px;
+                min-width: 77px;
+
+                svg {
+                    cursor: pointer;
+                    max-height: 22.38px;
+                    padding: 0px 2.5px;
+                }
+            }
+        }
+    }
+
+    >main {
+        margin: 2rem auto 2rem;
+        width: 400px;
+        padding: 40px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        box-shadow: 0 0 5px hsl(0 0% 78%);
+
+        @media (min-width: 650px) {
+            width: 650px;
+        }
+
+        >form {
+            height: 100%;
+
+            >div {
+
+                >input {
+                    width: 100%;
+                    padding: 10px 0;
+                    font-size: 16px;
+                    color: #000;
+                    margin-bottom: 30px;
+                    border: none;
+                    border-bottom: 1px solid #000;
+                    outline: none;
+                    background: transparent;
+                }
+
+                > input:focus~label, input:valid~label {
+                        transform: translate(-320px, -16px);
+                        color: #ff385c;
+                        font-size: 12px;
+
+                        @media (min-width: 650px) {
+                            transform: translate(-570px, -16px);
+                        }
+                }
+
+                >label {
+                    position: absolute;
+                    transform: translate(-320px, 0px);
+                    width: 110px;
+                    padding: 10px 0;
+                    font-size: 16px;
+                    color: #000;
+                    pointer-events: none;
+                    transition: 0.5s;
+
+                    @media (min-width: 650px) {
+                        transform: translate(-570px, 0px);
+                    }
+                }
+            }
+
+            /* Submit "button" */
+            >a {
+                position: relative;
+                display: inline-block;
+                padding: 10px 20px;
+                color: #ff385c;
+                font-size: 16px;
+                text-decoration: none;
+                text-transform: uppercase;
+                overflow: hidden;
+                transition: .5s;
+                margin-top: 40px;
+                letter-spacing: 4px;
+
+                &:hover {
+                    background: #ff385c;
+                    color: #fff;
+                    border-radius: 5px;
+                    box-shadow: 0 0 5px #ff385c,
+                        0 0 25px #ff385c,
+                        0 0 50px #ff385c,
+                        0 0 100px #ff385c;
+                }
+
+                /* 4 Animation Span */
+                >span {
+                    display: block;
+                    position: absolute;
+
+                    &:nth-of-type(1) {
+                        top: 0;
+                        left: -100%;
+                        width: 100%;
+                        height: 2px;
+                        background: linear-gradient(90deg, transparent, #ff385c);
+                        animation: btn-anim1 1s linear infinite;
+                    }
+                    @keyframes btn-anim1 {
+                        0% {
+                            left: -100%;
+                        }
+
+                        50%,
+                        100% {
+                            left: 100%;
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        top: -100%;
+                        right: 0;
+                        width: 2px;
+                        height: 100%;
+                        background: linear-gradient(180deg, transparent, #ff385c);
+                        animation: btn-anim2 1s linear infinite;
+                        animation-delay: .25s
+                    }
+                    @keyframes btn-anim2 {
+                        0% {
+                            top: -100%;
+                        }
+
+                        50%,
+                        100% {
+                            top: 100%;
+                        }
+                    }
+                    &:nth-of-type(3) {
+                        bottom: 0;
+                        right: -100%;
+                        width: 100%;
+                        height: 2px;
+                        background: linear-gradient(270deg, transparent, #ff385c);
+                        animation: btn-anim3 1s linear infinite;
+                        animation-delay: .5s
+                    }
+                    @keyframes btn-anim3 {
+                        0% {
+                          right: -100%;
+                        }
+                        50%,100% {
+                          right: 100%;
+                        }
+                    }
+                    &:nth-of-type(4) {
+                        bottom: -100%;
+                        left: 0;
+                        width: 2px;
+                        height: 100%;
+                        background: linear-gradient(360deg, transparent, #ff385c);
+                        animation: btn-anim4 1s linear infinite;
+                        animation-delay: .75s
+                    }
+                    @keyframes btn-anim4 {
+                        0% {
+                          bottom: -100%;
+                        }
+                        50%,100% {
+                          bottom: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', Helvetica, sans-serif;
+  background-color: #FFF;
+
+  min-height: 100%;
+
+  box-sizing: border-box;
+  padding: 0;
+
+  text-align: center;
+  margin: 0 auto;
+
+  >main {
+    max-width: 80rem;
+    margin: 0 auto;
+
+    > section {
+      padding-top: 1rem;
+
+      >h2 {
+        font-size: 2rem;
+        font-weight: 500;
+        padding-bottom: 5px;
+        text-align: left;
+      }
+
+      >div {
+        /* SmallCard Grid Container */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(8, 1fr);
+
+        @media (min-width: 640px) {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(4, 1fr);
+        }
+
+        @media (min-width: 1000px) {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(3, 1fr);
+        }
+
+        @media (min-width: 1280px) {
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(2, 1fr) repeat(2, 0fr);
+        }
+      }
+
+    }
+
+    section {
+      &:nth-of-type(2) {
+
+        h2 {
+          font-size: 2rem;
+          font-weight: 500;
+          padding-bottom: 5px;
+          text-align: left;
+        }
+
+        >div {
+          &:nth-of-type(1) {
+            display: flex;
+            overflow: scroll;
+            scrollbar-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}

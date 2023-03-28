@@ -1,0 +1,216 @@
+.footer {
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding : 10px 32px;
+    margin-top: 20px;
+    background-color: #f2f2f2;
+    color: #222;
+
+    @media (min-width: 650px) {
+        min-width: 650px;
+    }
+
+    @media (min-width: 1000px) {
+        min-width: 1000px;
+        max-height: 260px; /* For reduce the height of the footer */
+
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width: 1400px) {
+        width: 100%;
+    }
+
+    > div {
+
+        &:nth-child(n+2):nth-child(-n+4) {
+            /* the dividing line in top of div 2, 3 and 4*/
+            > h5 {
+                &::before {
+                    content: " ";
+                    cursor: default;
+                    display: block;
+                    min-width: 100%;
+                    border-bottom: 0.5px solid #484848;
+                    margin-bottom: 15px;
+
+                    @media (min-width: 1000px) {
+                        min-width: 0px;
+                        border-bottom: 0px solid transparent;
+                    }
+                }
+            }
+        }
+        &:nth-of-type(4) {
+            > a {
+                &:last-of-type {
+                    content: " ";
+                    cursor: pointer;
+                    display: block;
+                    min-width: 100%;
+                    border-bottom: 0.5px solid #484848;
+                    padding-bottom: 15px;
+
+                    @media (min-width: 1000px) {
+                        min-width: 0px;
+                        border-bottom: 0px solid transparent;
+                    }
+                }
+            }
+        }
+        
+        > h5 {
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0px;      
+        }
+        > a {
+            text-align: center;
+            display: block;
+            margin: 5px 0px;
+            text-decoration: none;
+            font-size: 12px;
+            color: #333;
+            width: 250px;
+
+            @media (min-width: 650px) {
+               display: inline-flex;
+               align-items: center;
+               justify-content: center;
+               flex-wrap: wrap;
+               width: 250px;
+            }
+        }
+
+        /*__________________________________________________________*/
+
+        &:last-of-type {
+            /* Below part of the footer */
+            > div {
+                color: #222;
+                margin: 10px auto 0px auto;
+                padding: 0;
+                font-size: 14px;
+                display: flex;
+                flex-direction: column;
+
+                ul {
+                    width: 100%;
+                    margin: 0 auto;
+                    padding: 0;
+                    
+                    &:first-of-type {
+                        li {
+                            margin: 0 auto;
+                            list-style-type: none;
+                            
+                            &:first-of-type {
+                                display: flex;
+                                justify-content: center;
+                                > span {
+                                    /* Span 2 : Langage  /  Span 3 : Currency */
+                                    cursor: pointer;
+                                    font-weight: bold;
+                                    text-decoration: underline;
+                                    padding: 0rem 0.5rem;
+
+                                    :first-of-type {
+                                        /* Span 1 : Globe svg */
+                                        > svg {
+                                            width: 24px;
+                                        }
+                                    }                                
+                                }
+                            }
+
+                            &:nth-of-type(2) {
+                                display: flex;
+                                justify-content: space-evenly;
+                                margin: 0;
+                                padding: 0;
+                                flex-grow: 1;
+                                align-items: center;
+
+                                > a {
+                                    cursor: pointer;
+                                    margin: 10px 0px;
+                                }   
+                            }
+                        }
+                        @media (min-width: 1000px) {
+                            order: 3;
+                        }
+                    }
+                }
+                > span {
+                    /* This 2 span refers to year 2023 and my signature */
+                    &:first-of-type {
+                        margin-top: 0.5rem;
+                        color: #333;
+
+                        @media (min-width: 1000px) {
+                            min-width: 140px;
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        margin-bottom: 1rem;
+                        > a {
+                            font-size: 1em;
+                            color: #ff385c;
+                            font-weight: bold;
+                        }
+                        @media (min-width: 1000px) {
+                            width: 210px;
+                            margin-bottom: -7px;
+                        }
+                    }
+                    @media (min-width: 1000px) {
+                        order: 1;
+                    }
+                }
+                ul {
+                    &:last-of-type {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-evenly;
+                        
+                        li {
+                            /* bottom part of the bottom div */
+                            list-style-type: none;
+                            &:hover {
+                                text-decoration: underline;
+                                cursor: pointer;
+                            }
+                            &::marker {
+                                color: #333;
+                                font-size: 1em;
+                            }
+                        }
+                    @media (min-width: 1000px) {
+                        order: 2;
+                        margin-bottom: -7px;
+                    }
+                    }
+                }
+            }
+
+            @media (min-width: 1000px) {
+                width: 100%;
+                grid-column: 1/5;
+	            grid-row: 2/3;
+                max-height: 70px;
+
+                > div {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    min-height: 70px;
+                }
+            }
+        }
+    }
+}
