@@ -27,7 +27,7 @@ async function createDB() {
                     password VARCHAR(255) NOT NULL,
                     remember_token VARCHAR(255),
                     created_at DATETIME NOT NULL,
-                    updated_at DATETIME NOT NULL,
+                    updated_at DATETIME,
                     phone_number VARCHAR(10) NOT NULL,
                     kbis_number VARCHAR(9) NOT NULL UNIQUE,
                     profile_image VARCHAR(255)
@@ -37,14 +37,15 @@ async function createDB() {
                     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                     firstname VARCHAR(255) NOT NULL,
                     lastname VARCHAR(255) NOT NULL,
+                    birthdate DATE NOT NULL,
                     email VARCHAR(255) NOT NULL UNIQUE,
                     email_verified_at DATETIME,
                     password VARCHAR(255) NOT NULL,
                     remember_token VARCHAR(255),
                     created_at DATETIME NOT NULL,
-                    updated_at DATETIME NOT NULL,
+                    updated_at DATETIME,
                     phone_number VARCHAR(10) NOT NULL,
-                    description VARCHAR(255) NOT NULL,
+                    description VARCHAR(255),
                     profile_image VARCHAR(255)
                 )`);
 
@@ -127,13 +128,13 @@ async function createDB() {
                         ("Room Eight", 6, "rue de la Plage", "Nice", 06000, "room-eight@example.com", "2023-03-10 14:00:00", "password8", NULL, NOW(), NOW(), "0888888888", "555666777", "https://example.com/images/motel8.jpg")
                     `);
 
-                await con.query(`INSERT INTO guests (firstname, lastname, email, email_verified_at, password, remember_token, created_at, updated_at, phone_number, description, profile_image) 
+                await con.query(`INSERT INTO guests (firstname, lastname, birthdate, email, email_verified_at, password, remember_token, created_at, updated_at, phone_number, description, profile_image) 
             VALUES
-                ("John", "Doe", "john.doe@gmail.com", NOW(), "John_Doe+123", NULL, NOW(), NOW(), "0123456789", "I am a guest user", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"),
-                ("Mary", "Jane", "mary.juana@gmail.com", NOW(), "Mary_Jane+123", NULL, NOW(), NOW(), "0987654321", "I am a guest user", "https://images.unsplash.com/photo-1605993439219-9d09d2020fa5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"),
-                ("Jane", "Smith", "jane.smith@gmail.com", NOW(), "Jane_Smith+123", NULL, NOW(), NOW(), "1234567890", "I am a guest user", "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"),
-                ("Bob", "Johnson", "bob.johnson@gmail.com", NOW(), "Bob_Johnson+123", NULL, NOW(), NOW(), "0987654321", "I am a guest user", "https://images.unsplash.com/photo-1630841539293-bd20634c5d72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"),
-                ("Alice", "Kim", "alice.kim@gmail.com", NOW(), "Alice_Kim+123", NULL, NOW(), NOW(), "0156249376", "I am a guest user", "https://images.unsplash.com/photo-1619443143113-9fc54b5609ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+                ("John", "Doe", "1970-01-01", "john.doe@gmail.com", NOW(), "John_Doe+123", NULL, NOW(), NOW(), "0123456789", "I am a guest user", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"),
+                ("Mary", "Jane", "1980-01-01", "mary.juana@gmail.com", NOW(), "Mary_Jane+123", NULL, NOW(), NOW(), "0987654321", "I am a guest user", "https://images.unsplash.com/photo-1605993439219-9d09d2020fa5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"),
+                ("Jane", "Smith", "1990-01-01", "jane.smith@gmail.com", NOW(), "Jane_Smith+123", NULL, NOW(), NOW(), "1234567890", "I am a guest user", "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"),
+                ("Bob", "Johnson", "1995-01-01", "bob.johnson@gmail.com", NOW(), "Bob_Johnson+123", NULL, NOW(), NOW(), "0987654321", "I am a guest user", "https://images.unsplash.com/photo-1630841539293-bd20634c5d72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"),
+                ("Alice", "Kim", "2000-01-01", "alice.kim@gmail.com", NOW(), "Alice_Kim+123", NULL, NOW(), NOW(), "0156249376", "I am a guest user", "https://images.unsplash.com/photo-1619443143113-9fc54b5609ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
             `);
 
                 await con.query(`INSERT INTO roles (name)

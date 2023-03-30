@@ -1,6 +1,6 @@
 import styles from "../../styles/signup.module.scss";
 import Image from "next/image";
-import { MenuIcon, UserCircleIcon } from "@heroicons/react/solid";
+import { MenuIcon, UserCircleIcon, CheckIcon, UserIcon, HomeIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
 import Link from 'next/link';
 import Connexion from "../components/Connexion";
@@ -38,27 +38,47 @@ export default function SignUp() {
                 </div>
                 {showConnexion && <Connexion />}
             </div>
+
             <main>
 
-                <div className="user-type-selection">
-                    <input type="radio"
-                        id="guest"
-                        name="user-type"
-                        value="guest"
-                        defaultChecked={userType === "guest"}
-                        onClick={handleGuestClick} />
+                <div className={styles.user_type_selection}>
+                    <div>
+                        <label htmlFor="guest">
+                            <input type="radio"
+                                id="guest"
+                                name="user-type"
+                                value="guest"
+                                defaultChecked={userType === "guest"}
+                                onClick={handleGuestClick} />
+                            <span>
+                                <CheckIcon />
+                                <div>
+                                    <UserIcon className={styles.svg} />
+                                    <h3>I am a guest</h3>
+                                </div>
+                            </span>
+                        </label>
+                    </div>
 
-                    <label htmlFor="guest">I am a Guest</label>
 
-                    <input type="radio"
-                        id="owner"
-                        name="user-type" value="owner"
-                        defaultChecked={userType === "owner"}
-                        onClick={handleOwnerClick} />
-
-                    <label htmlFor="owner">I am an Owner</label>
+                    <div>
+                        <label htmlFor="owner">
+                            <input type="radio"
+                                id="owner"
+                                name="user-type"
+                                value="owner"
+                                defaultChecked={userType === "owner"}
+                                onClick={handleOwnerClick} />
+                            <span>
+                                <CheckIcon />
+                                <div>
+                                    <HomeIcon className={styles.svg} />
+                                    <h3>I am an owner</h3>
+                                </div>
+                            </span>
+                        </label>
+                    </div>
                 </div>
-
                 {userType === "guest" ? (<GuestForm />)
                     : userType === "owner" ? (<OwnerForm />)
                         : null
